@@ -11,10 +11,10 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_detailsFragment"
+            android:id="@+id/mainToDetails"
             app:destination="@id/detailsFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_saveFragment"
+            android:id="@+id/mainToSave"
             app:destination="@id/saveFragment" />
     </fragment>
     <fragment
