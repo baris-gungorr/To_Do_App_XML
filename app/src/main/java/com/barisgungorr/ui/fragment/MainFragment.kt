@@ -1,5 +1,6 @@
 package com.barisgungorr.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,6 +18,7 @@ import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,11 +34,9 @@ class MainFragment : Fragment() {
 
 
         binding.buttonDetails.setOnClickListener {
-            val note = Notes("baslik","notes")
 
-            val go = MainFragmentDirections.mainToDetails(note = note)
 
-            Navigation.findNavController(it).navigate(go)
+
         }
 
         binding.searchView.setOnQueryTextListener(object :OnQueryTextListener{
@@ -53,14 +53,11 @@ class MainFragment : Fragment() {
 
         binding.searchView.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
-                // SearchView'e dokunulduğunda, metin düzenlemesi başlatılır
+
                 binding.searchView.isIconified = false
             }
             false
         }
-
-
-
 
         return view
     }
