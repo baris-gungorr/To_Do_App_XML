@@ -21,7 +21,11 @@
         android:id="@+id/detailsFragment"
         android:name="com.barisgungorr.ui.fragment.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="note"
+            app:argType="com.barisgungorr.data.entity.Notes" />
+    </fragment>
     <fragment
         android:id="@+id/saveFragment"
         android:name="com.barisgungorr.ui.fragment.SaveFragment"

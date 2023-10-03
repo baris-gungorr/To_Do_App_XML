@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import com.barisgungorr.data.entity.Notes
 import com.barisgungorr.todoapplication.R
 import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
 
@@ -18,17 +19,24 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        val view = binding.root
+
 
         binding.fab.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.mainToSave)
         }
 
+
         binding.buttonDetails.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.mainToDetails)
+            val note = Notes("baslik","notes")
+
+            val go = MainFragmentDirections.mainToDetails(note = note)
+
+            Navigation.findNavController(it).navigate(go)
         }
 
-        binding.root
+        return view
     }
 
 }
