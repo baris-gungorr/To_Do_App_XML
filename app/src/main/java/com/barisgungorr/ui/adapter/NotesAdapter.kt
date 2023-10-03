@@ -9,9 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.barisgungorr.data.entity.Notes
 import com.barisgungorr.todoapplication.databinding.CardDesignBinding
 import com.barisgungorr.ui.fragment.MainFragmentDirections
+import com.barisgungorr.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
-class NotesAdapter (var mContext : Context, var notesList : List<Notes>) :
+class NotesAdapter (var mContext : Context, var notesList : List<Notes>,var viewModel:MainViewModel) :
     RecyclerView.Adapter<NotesAdapter.CardDesignHolder>() {
     inner class CardDesignHolder(var design: CardDesignBinding) : RecyclerView.ViewHolder(design.root)
 
@@ -42,6 +43,6 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>) :
     }
 
     fun delete(note_title:String) {
-        Log.e("Note Sil", note_title.toString())
+        viewModel.delete(note_title)
     }
 }

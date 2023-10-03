@@ -9,6 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView.OnQueryTextListener
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -16,9 +17,11 @@ import com.barisgungorr.data.entity.Notes
 import com.barisgungorr.todoapplication.R
 import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
 import com.barisgungorr.ui.adapter.NotesAdapter
+import com.barisgungorr.viewmodel.MainViewModel
 
 
 class MainFragment : Fragment() {
+    private lateinit var viewModel: MainViewModel
     private lateinit var binding: FragmentMainBinding
 
     @SuppressLint("ClickableViewAccessibility")
@@ -35,20 +38,10 @@ class MainFragment : Fragment() {
       //binding.rv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         //binding.rv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL)
 
-        val notesList = ArrayList<Notes> ()
-            val n1 = Notes("Baslik 1", "bugün hava çok kapalı bugün hava çok kapalı bugün hava çok kapalı ")
-        val n2 = Notes("Baslik 2", "bugün hava çok kapalı bugün hava çok kapalı bugün hava çok kapalı ")
-            val n3 = Notes("Baslik 3", "bugün hava çok kapalı bugün hava çok kapalı bugün hava çok kapalı ")
-        val n4 = Notes("Baslik 4", "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.")
-
-        notesList.add(n1)
-            notesList.add(n2)
-        notesList.add(n3)
-            notesList.add(n4)
-
-        val notesAdapter = NotesAdapter(requireContext(),notesList)
-        binding.rv.adapter = notesAdapter
-
+        viewModel.notesList.observe(viewLifecycleOwner) {
+            val notesAdapter = NotesAdapter(requireContext(),it,viewModel)
+            binding.rv.adapter = notesAdapter
+        }
 
         binding.fab.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.mainToSave)
@@ -78,13 +71,18 @@ class MainFragment : Fragment() {
 
         return view
     }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel :MainViewModel by viewModels()
+        viewModel = tempViewModel
+    }
 
-    fun search(searchWord: String) {
-        Log.e("Kişi Ara",searchWord)
+    fun search(searchKeyword: String) {
+        viewModel.search(searchKeyword)
     }
 
     override fun onResume() {
         super.onResume()
-        Log.e("Kişi Anasayfa","Dönüldü")
+       viewModel.notesAdd()
     }
 }

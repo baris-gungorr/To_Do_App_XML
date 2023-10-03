@@ -6,14 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.barisgungorr.todoapplication.R
 import com.barisgungorr.todoapplication.databinding.FragmentDetailsBinding
 import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
+import com.barisgungorr.viewmodel.DetailsViewModel
+import com.barisgungorr.viewmodel.MainViewModel
 
 
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
+    private lateinit var viewModel: DetailsViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,14 +41,16 @@ class DetailsFragment : Fragment() {
 
         }
 
-
-
         return view
-
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel :DetailsViewModel by viewModels()
+        viewModel = tempViewModel
     }
 
     fun update(note_title:String,text_main:String) {
-        Log.e("Kişi Güncelle", "$note_title - $text_main")
+        viewModel.update(note_title, text_main)
 
     }
 
