@@ -57,7 +57,8 @@
             android:layout_gravity="start"
             android:gravity="start"
             android:hint="Planlarım:"
-            android:inputType="text" />
+            android:inputType="textMultiLine"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 

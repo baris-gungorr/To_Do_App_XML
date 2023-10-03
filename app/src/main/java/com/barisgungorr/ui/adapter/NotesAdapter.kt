@@ -1,11 +1,15 @@
 package com.barisgungorr.ui.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.barisgungorr.data.entity.Notes
 import com.barisgungorr.todoapplication.databinding.CardDesignBinding
+import com.barisgungorr.ui.fragment.MainFragmentDirections
+import com.google.android.material.snackbar.Snackbar
 
 class NotesAdapter (var mContext : Context, var notesList : List<Notes>) :
     RecyclerView.Adapter<NotesAdapter.CardDesignHolder>() {
@@ -20,10 +24,24 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>) :
         val d = holder.design
         d.textViewTitle.text = note.note_title
         d.textViewInfo.text = note.text_main
+
+        d.imageViewDelete.setOnClickListener {
+            Snackbar.make(it,"${note.note_title} Silmek istediğinden emin misin ? ", Snackbar.LENGTH_LONG)
+                .setAction("EVET") {
+                    delete(note.note_title)
+                }.show()
+        }
+        d.CardViewLine.setOnClickListener {
+            val show = MainFragmentDirections.mainToDetails(note = note)
+                Navigation.findNavController(it).navigate(show)
+        }
     }
 
     override fun getItemCount(): Int {
       return  notesList.size
     }
 
+    fun delete(note_title:String) {
+        Log.e("Note Sil", note_title.toString())
+    }
 }

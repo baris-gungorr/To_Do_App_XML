@@ -68,8 +68,12 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:gravity="start"
+            android:scrollHorizontally="false"
+            android:inputType="textMultiLine"
+
+
             android:hint="Planlarım:"
-            android:inputType="text" />
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
