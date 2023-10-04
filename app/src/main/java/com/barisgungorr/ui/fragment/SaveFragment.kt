@@ -13,8 +13,9 @@ import com.barisgungorr.todoapplication.databinding.FragmentSaveBinding
 import com.barisgungorr.viewmodel.DetailsViewModel
 import com.barisgungorr.viewmodel.MainViewModel
 import com.barisgungorr.viewmodel.SaveViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SaveFragment : Fragment() {
     private lateinit var binding: FragmentSaveBinding
     private lateinit var viewModel: SaveViewModel

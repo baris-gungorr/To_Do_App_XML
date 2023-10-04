@@ -19,8 +19,9 @@ import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
 import com.barisgungorr.ui.adapter.NotesAdapter
 import com.barisgungorr.utils.transition
 import com.barisgungorr.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainFragment : Fragment() {
     private lateinit var viewModel: MainViewModel
     private lateinit var binding: FragmentMainBinding

@@ -13,8 +13,9 @@ import com.barisgungorr.todoapplication.databinding.FragmentDetailsBinding
 import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
 import com.barisgungorr.viewmodel.DetailsViewModel
 import com.barisgungorr.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DetailsFragment : Fragment() {
     private lateinit var binding: FragmentDetailsBinding
     private lateinit var viewModel: DetailsViewModel
