@@ -17,6 +17,7 @@ import com.barisgungorr.data.entity.Notes
 import com.barisgungorr.todoapplication.R
 import com.barisgungorr.todoapplication.databinding.FragmentMainBinding
 import com.barisgungorr.ui.adapter.NotesAdapter
+import com.barisgungorr.utils.transition
 import com.barisgungorr.viewmodel.MainViewModel
 
 
@@ -44,7 +45,8 @@ class MainFragment : Fragment() {
         }
 
         binding.fab.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.mainToSave)
+         Navigation.transition(it,R.id.mainToSave)
+
         }
 
 

@@ -14,7 +14,6 @@ class NotesDataSource {
         Log.e("Kişi Güncelle", "$note_title - $text_main")
 
     }
-
   suspend  fun delete(note_title:String) {
         Log.e("Note Sil", note_title.toString())
     }
@@ -42,6 +41,5 @@ class NotesDataSource {
 
         return@withContext notes
     }
-
 
 }

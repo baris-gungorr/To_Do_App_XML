@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.barisgungorr.data.entity.Notes
 import com.barisgungorr.todoapplication.databinding.CardDesignBinding
 import com.barisgungorr.ui.fragment.MainFragmentDirections
+import com.barisgungorr.utils.transition
 import com.barisgungorr.viewmodel.MainViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -34,7 +35,7 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>,var view
         }
         d.CardViewLine.setOnClickListener {
             val show = MainFragmentDirections.mainToDetails(note = note)
-                Navigation.findNavController(it).navigate(show)
+                Navigation.transition(it,show)
         }
     }
 
