@@ -16,7 +16,5 @@ class DetailsViewModel @Inject constructor(var nrepo:NotesRepository) : ViewMode
         CoroutineScope(Dispatchers.Main).launch {
             nrepo.update(note_title, text_main)
         }
-
     }
-
 }

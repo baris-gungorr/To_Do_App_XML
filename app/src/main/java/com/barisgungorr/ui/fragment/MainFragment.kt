@@ -50,8 +50,6 @@ class MainFragment : Fragment() {
 
         }
 
-
-
         binding.searchView.setOnQueryTextListener(object :OnQueryTextListener{
 
             override fun onQueryTextSubmit(query: String): Boolean {

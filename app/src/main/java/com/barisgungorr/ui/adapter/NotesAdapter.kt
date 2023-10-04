@@ -30,12 +30,12 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>,var view
         d.imageViewDelete.setOnClickListener {
             Snackbar.make(it,"${note.note_title} Silmek istediğinden emin misin ? ", Snackbar.LENGTH_LONG)
                 .setAction("EVET") {
-                    delete(note.note_title)
+                    delete(note.note_title ,note.text_main)
                 }.show()
         }
         d.CardViewLine.setOnClickListener {
             val show = MainFragmentDirections.mainToDetails(note = note)
-                Navigation.transition(it,show)
+            Navigation.transition(it,show)
         }
     }
 
@@ -43,7 +43,7 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>,var view
       return  notesList.size
     }
 
-    fun delete(note_title:String) {
-        viewModel.delete(note_title)
+    fun delete(note_title:String,text_main:String) {
+        viewModel.delete(note_title,text_main)
     }
 }

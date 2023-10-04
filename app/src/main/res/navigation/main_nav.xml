@@ -30,5 +30,9 @@
         android:id="@+id/saveFragment"
         android:name="com.barisgungorr.ui.fragment.SaveFragment"
         android:label="fragment_save"
-        tools:layout="@layout/fragment_save" />
+        tools:layout="@layout/fragment_save" >
+        <action
+            android:id="@+id/saveToMain"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

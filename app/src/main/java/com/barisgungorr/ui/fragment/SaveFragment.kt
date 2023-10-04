@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.barisgungorr.todoapplication.R
 import com.barisgungorr.todoapplication.databinding.FragmentDetailsBinding
 import com.barisgungorr.todoapplication.databinding.FragmentSaveBinding
+import com.barisgungorr.utils.transition
 import com.barisgungorr.viewmodel.DetailsViewModel
 import com.barisgungorr.viewmodel.MainViewModel
 import com.barisgungorr.viewmodel.SaveViewModel
@@ -32,6 +35,12 @@ class SaveFragment : Fragment() {
                 val text_main = binding.textMain.text.toString()
 
             save(note_title, text_main)
+            Toast.makeText(requireContext(),"Kayıt Başarılı",Toast.LENGTH_LONG).show()
+
+            val delayMillis = 1000
+            it.postDelayed({
+                Navigation.transition(it, R.id.saveToMain)
+            }, delayMillis.toLong())
         }
 
         return view

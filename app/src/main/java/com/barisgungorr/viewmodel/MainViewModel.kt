@@ -18,9 +18,10 @@ class MainViewModel@Inject constructor(var nrepo:NotesRepository) : ViewModel() 
     init {
         notesAdd()
     }
-    fun delete(note_title: String) {
+    fun delete(note_title: String,text_main:String) {
         CoroutineScope(Dispatchers.Main).launch {
-            nrepo.delete(note_title)
+            nrepo.delete(note_title, text_main )
+            notesAdd()
         }
     }
     fun notesAdd() {
