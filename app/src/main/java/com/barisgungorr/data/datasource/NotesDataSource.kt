@@ -12,14 +12,14 @@ class NotesDataSource (var ndao: NotesDao) {
         ndao.save(newNote)
     }
 
-  suspend  fun update(note_title:String,text_main:String) {
-      val updateNote = Notes(0,note_title, text_main)
-      ndao.save(updateNote)
+  suspend  fun update(nots_id:Int,note_title:String,text_main:String) {
+      val updateNote = Notes(nots_id, note_title, text_main)
+      ndao.update(updateNote)
 
     }
 
-  suspend  fun delete(note_title: String,text_main: String) {
-      val deleteNote = Notes(0,note_title,text_main)
+  suspend  fun delete(nots_id:Int) {
+      val deleteNote = Notes(nots_id,"","")
       ndao.delete(deleteNote)
 
     }
@@ -30,15 +30,8 @@ class NotesDataSource (var ndao: NotesDao) {
     }
 
     suspend fun search(searchKeyword:String) : List<Notes> = withContext(Dispatchers.IO) {
-        val nots = ArrayList<Notes>()
 
-        val n1 = Notes(1,"Note Title","merhaba selam merhaba")
-          val n2 = Notes(2,"Note Titleee","merhaba selam merhabaaaaaaa")
-
-        nots.add(n1)
-            nots.add(n2)
-
-        return@withContext nots
+        return@withContext ndao.search(searchKeyword)
     }
 
 }

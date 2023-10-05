@@ -18,9 +18,9 @@ class MainViewModel@Inject constructor(var nrepo:NotesRepository) : ViewModel() 
     init {
         notesAdd()
     }
-    fun delete(note_title: String,text_main:String) {
+    fun delete(nots_id:Int) {
         CoroutineScope(Dispatchers.Main).launch {
-            nrepo.delete(note_title, text_main )
+            nrepo.delete(nots_id)
             notesAdd()
         }
     }
@@ -29,6 +29,7 @@ class MainViewModel@Inject constructor(var nrepo:NotesRepository) : ViewModel() 
             notesList.value = nrepo.notesAdd()
         }
     }
+
     fun search(searchKeyword: String) {
         CoroutineScope(Dispatchers.Main).launch {
             notesList.value = nrepo.search(searchKeyword)

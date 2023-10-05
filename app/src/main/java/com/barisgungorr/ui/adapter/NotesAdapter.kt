@@ -30,7 +30,7 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>,var view
         d.imageViewDelete.setOnClickListener {
             Snackbar.make(it,"${note.note_title} Silmek istediğinden emin misin ? ", Snackbar.LENGTH_LONG)
                 .setAction("EVET") {
-                    delete(note.note_title ,note.text_main)
+                    delete(note.nots_id)
                 }.show()
         }
         d.CardViewLine.setOnClickListener {
@@ -43,7 +43,7 @@ class NotesAdapter (var mContext : Context, var notesList : List<Notes>,var view
       return  notesList.size
     }
 
-    fun delete(note_title:String,text_main:String) {
-        viewModel.delete(note_title,text_main)
+    fun delete(nots_id:Int) {
+        viewModel.delete(nots_id)
     }
 }

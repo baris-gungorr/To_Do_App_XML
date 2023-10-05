@@ -12,9 +12,9 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsViewModel @Inject constructor(var nrepo:NotesRepository) : ViewModel() {
 
-     fun update(note_title:String,text_main:String) {
+     fun update(nots_id: Int, note_title: String, text_main: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            nrepo.update(note_title, text_main)
+            nrepo.update(nots_id,note_title, text_main)
         }
     }
 }

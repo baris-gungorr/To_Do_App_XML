@@ -25,6 +25,9 @@
         <argument
             android:name="note"
             app:argType="com.barisgungorr.data.entity.Notes" />
+        <action
+            android:id="@+id/detailsToMain"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/saveFragment"

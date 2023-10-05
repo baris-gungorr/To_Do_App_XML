@@ -22,6 +22,7 @@ interface NotesDao {
     @Delete
     suspend fun delete (note:Notes)
 
-
+    @Query("SELECT * FROM nots WHERE note_title like '%' || :searchKeyword || '%' ")
+    suspend fun search(searchKeyword:String) : List<Notes>
 
 }
