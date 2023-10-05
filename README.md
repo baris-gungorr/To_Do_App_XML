@@ -8,10 +8,10 @@
       <img src="https://github.com/baris-gungorr/To_Do_App/blob/main/app/src/main/pic/Screenshot_1696517272.png" alt="TO_DO_APP" width="250">
     </td>
     <td align="center">
-      <img src="https://github.com/baris-gungorr/To_Do_App/blob/main/app/src/main/pic/Screenshot_1696517291.png" alt="NOTLARIM" width="250">
+      <img src="https://github.com/baris-gungorr/To_Do_App_MVVM/blob/main/app/src/main/pic/2.png" alt="NOTLARIM" width="250">
     </td>
     <td align="center">
-      <img src="https://github.com/baris-gungorr/To_Do_App/blob/main/app/src/main/pic/Screenshot_1696517285.png" alt="NOTLARIM" width="250">
+      <img src="https://github.com/baris-gungorr/To_Do_App_MVVM/blob/main/app/src/main/pic/3.png" alt="NOTLARIM" width="250">
     </td>
 
   </tr>
