@@ -24,9 +24,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/white"
+            android:fontFamily="@font/aclonica"
             android:text="Kayıtlar Sayfası"
-            android:textSize="26sp">
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            tools:layout_editor_absoluteX="117dp"
+            tools:layout_editor_absoluteY="14dp">
 
         </TextView>
 
@@ -43,7 +46,8 @@
         android:clickable="true"
         android:backgroundTint="@color/c4"
         android:src="@drawable/baseline_post_add_24"
-        app:fabSize="mini"
+        app:fabSize="normal"
+        app:maxImageSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -54,7 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/white"
+        android:background="#EAE5E5"
         android:elevation="5dp"
         android:queryHint="Yapılacaklar içinde ara"
         app:layout_constraintEnd_toEndOf="parent"

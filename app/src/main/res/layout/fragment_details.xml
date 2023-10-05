@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+
         android:src="@drawable/change_icon"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -83,9 +84,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/white"
+            android:fontFamily="@font/aclonica"
             android:text="Detay Sayfası"
-            android:textSize="26sp">
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            tools:layout_editor_absoluteX="128dp"
+            tools:layout_editor_absoluteY="14dp">
 
         </TextView>
 

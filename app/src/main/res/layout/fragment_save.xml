@@ -14,6 +14,8 @@
         android:src="@drawable/save_icon"
         android:backgroundTint="@color/c4"
         android:layout_marginEnd="16dp"
+        app:fabSize="normal"
+        app:maxImageSize="40dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -30,16 +32,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/toolbarTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:text="Kayıt Sayfası"
-        android:textSize="26sp">
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/aclonica"
+            android:text="Kayıt Sayfası"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="14dp">
 
-    </TextView>
+        </TextView>
     </androidx.appcompat.widget.Toolbar>
 
 
