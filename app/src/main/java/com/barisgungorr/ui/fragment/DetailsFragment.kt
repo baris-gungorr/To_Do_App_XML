@@ -56,7 +56,7 @@ class DetailsFragment : Fragment() {
         }
 
         val fab = view.findViewById<FloatingActionButton>(R.id.fabUpdate)
-        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.baseline_post_add_24)
+        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.change_icon)
         drawable?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
         fab.setImageDrawable(drawable)
 

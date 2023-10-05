@@ -48,7 +48,7 @@ class SaveFragment : Fragment() {
         }
 
         val fab = view.findViewById<FloatingActionButton>(R.id.fabSave)
-        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.baseline_post_add_24)
+        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.save_icon)
         drawable?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
         fab.setImageDrawable(drawable)
 
