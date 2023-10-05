@@ -1,5 +1,7 @@
 package com.barisgungorr.ui.fragment
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.barisgungorr.todoapplication.R
@@ -16,6 +19,7 @@ import com.barisgungorr.utils.transition
 import com.barisgungorr.viewmodel.DetailsViewModel
 import com.barisgungorr.viewmodel.MainViewModel
 import com.barisgungorr.viewmodel.SaveViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,6 +46,11 @@ class SaveFragment : Fragment() {
                 Navigation.transition(it, R.id.saveToMain)
             }, delayMillis.toLong())
         }
+
+        val fab = view.findViewById<FloatingActionButton>(R.id.fabSave)
+        val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.baseline_post_add_24)
+        drawable?.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
+        fab.setImageDrawable(drawable)
 
         return view
 

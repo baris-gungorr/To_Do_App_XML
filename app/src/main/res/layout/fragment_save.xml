@@ -1,4 +1,5 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:src="@drawable/save_icon"
+        android:backgroundTint="@color/c4"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,17 +22,32 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/c4"
+        app:titleTextColor="@color/white"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="Kayıt Sayfası" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/toolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:text="Kayıt Sayfası"
+        android:textSize="26sp">
+
+    </TextView>
+    </androidx.appcompat.widget.Toolbar>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="0dp"
+        android:textAllCaps="true"
+
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -45,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Başlık"
-            android:inputType="text"
+            android:inputType="text|textMultiLine"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -55,6 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
+        android:textAllCaps="true"
         android:layout_marginTop="140dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="textStart"
@@ -68,12 +86,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:gravity="start"
-            android:scrollHorizontally="false"
-            android:inputType="textMultiLine"
-
-
             android:hint="Planlarım:"
-            />
+            android:inputType="text|textMultiLine"
+            android:scrollHorizontally="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
