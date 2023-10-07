@@ -29,7 +29,7 @@ Application architecture: MVVM
 - Hilt
 - Room
 
-For animation : Lottie used
+
 
  ✏️ Dependency
  ```gradle
