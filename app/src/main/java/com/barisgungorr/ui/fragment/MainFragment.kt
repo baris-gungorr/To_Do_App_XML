@@ -32,25 +32,21 @@ class MainFragment : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
 
-         binding.rv.layoutManager = LinearLayoutManager(requireContext())
-
-      //binding.rv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
-        //binding.rv.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.HORIZONTAL)
+        binding.rv.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.notesList.observe(viewLifecycleOwner) {
-            val notesAdapter = NotesAdapter(requireContext(),it,viewModel)
+            val notesAdapter = NotesAdapter(requireContext(), it, viewModel)
             binding.rv.adapter = notesAdapter
         }
 
         binding.fab.setOnClickListener {
-         Navigation.transition(it,R.id.mainToSave)
+            Navigation.transition(it, R.id.mainToSave)
 
         }
         val fab = view.findViewById<FloatingActionButton>(R.id.fab)
@@ -61,12 +57,13 @@ class MainFragment : Fragment() {
 
 
 
-        binding.searchView.setOnQueryTextListener(object :OnQueryTextListener{
+        binding.searchView.setOnQueryTextListener(object : OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String): Boolean {
-               search(query)
+                search(query)
                 return false
             }
+
             override fun onQueryTextChange(newText: String): Boolean {
                 search(newText)
                 return true
@@ -83,11 +80,11 @@ class MainFragment : Fragment() {
 
         return view
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val tempViewModel :MainViewModel by viewModels()
+        val tempViewModel: MainViewModel by viewModels()
         viewModel = tempViewModel
-
 
 
     }
@@ -98,6 +95,6 @@ class MainFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-       viewModel.notesAdd()
+        viewModel.notesAdd()
     }
 }

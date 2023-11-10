@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailsViewModel @Inject constructor(var nrepo:NotesRepository) : ViewModel() {
+class DetailsViewModel @Inject constructor(private var nRepo:NotesRepository) : ViewModel() {
 
      fun update(nots_id: Int, note_title: String, text_main: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            nrepo.update(nots_id,note_title, text_main)
+            nRepo.update(nots_id,note_title, text_main)
         }
     }
 }

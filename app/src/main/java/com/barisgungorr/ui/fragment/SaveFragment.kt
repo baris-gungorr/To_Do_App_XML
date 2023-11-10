@@ -36,10 +36,10 @@ class SaveFragment : Fragment() {
 
         binding.fabSave.setOnClickListener {
             val note_title = binding.textTitle.text.toString()
-                val text_main = binding.textMain.text.toString()
+            val text_main = binding.textMain.text.toString()
 
             save(note_title, text_main)
-            Toast.makeText(requireContext(),"Kayıt Başarılı",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Kayıt Başarılı", Toast.LENGTH_LONG).show()
 
             val delayMillis = 1000
             it.postDelayed({
@@ -55,13 +55,14 @@ class SaveFragment : Fragment() {
         return view
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val tempViewModel : SaveViewModel by viewModels()
+        val tempViewModel: SaveViewModel by viewModels()
         viewModel = tempViewModel
     }
 
-    fun save(note_title: String, text_main:String) {
+    private fun save(note_title: String, text_main: String) {
         viewModel.save(note_title, text_main)
     }
 

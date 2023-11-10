@@ -39,15 +39,15 @@ class DetailsFragment : Fragment() {
         val comeNote = bundle.note
 
         binding.textTitle.setText(comeNote.note_title)
-            binding.textMain.setText(comeNote.text_main)
+        binding.textMain.setText(comeNote.text_main)
 
         binding.fabUpdate.setOnClickListener {
             val note_title = binding.textTitle.text.toString()
-                val text_main = binding.textMain.text.toString()
+            val text_main = binding.textMain.text.toString()
 
-            update(comeNote.nots_id,note_title, text_main)
+            update(comeNote.nots_id, note_title, text_main)
 
-            Toast.makeText(requireContext(),"Güncelleme Başarılı", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Güncelleme Başarılı", Toast.LENGTH_LONG).show()
 
             val delayMillis = 1000
             it.postDelayed({
@@ -62,14 +62,15 @@ class DetailsFragment : Fragment() {
 
         return view
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val tempViewModel :DetailsViewModel by viewModels()
+        val tempViewModel: DetailsViewModel by viewModels()
         viewModel = tempViewModel
     }
 
-    fun update(nots_id:Int,note_title:String,text_main:String) {
-        viewModel.update(nots_id,note_title, text_main)
+    private fun update(nots_id: Int, note_title: String, text_main: String) {
+        viewModel.update(nots_id, note_title, text_main)
 
     }
 }

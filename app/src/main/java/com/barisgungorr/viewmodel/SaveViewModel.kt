@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SaveViewModel @Inject constructor(var nrepo:NotesRepository) : ViewModel() {
+class SaveViewModel @Inject constructor(private var nRepo:NotesRepository) : ViewModel() {
 
      fun save(note_title: String, text_main:String) {
         CoroutineScope(Dispatchers.Main).launch {
-            nrepo.save(note_title, text_main)
+            nRepo.save(note_title, text_main)
         }
     }
 }

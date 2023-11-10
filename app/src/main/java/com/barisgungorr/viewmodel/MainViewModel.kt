@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel@Inject constructor(var nrepo:NotesRepository) : ViewModel() {
+class MainViewModel@Inject constructor(private var nRepo:NotesRepository) : ViewModel() {
 
     var notesList = MutableLiveData<List<Notes>>()
 
@@ -20,19 +20,19 @@ class MainViewModel@Inject constructor(var nrepo:NotesRepository) : ViewModel() 
     }
     fun delete(nots_id:Int) {
         CoroutineScope(Dispatchers.Main).launch {
-            nrepo.delete(nots_id)
+            nRepo.delete(nots_id)
             notesAdd()
         }
     }
     fun notesAdd() {
         CoroutineScope(Dispatchers.Main).launch {
-            notesList.value = nrepo.notesAdd()
+            notesList.value = nRepo.notesAdd()
         }
     }
 
     fun search(searchKeyword: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            notesList.value = nrepo.search(searchKeyword)
+            notesList.value = nRepo.search(searchKeyword)
         }
     }
 }
